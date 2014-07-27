@@ -1,0 +1,23 @@
+{
+    "name": "aoe/symfonyeasydeployworkflow",
+    "description": "kickstart for symfony project deployment",
+    "authors": [
+        {
+            "name": "Daniel Pötzinger"
+        }
+    ],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/AOEpeople/EasyDeployWorkflows"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/AOEpeople/EasyDeploy"
+		}
+	],
+    "require": {
+		"aoepeople/easy-deploy": "dev-master",
+		"aoepeople/easy-deploy-workflows": "dev-refactorworkflows"
+    }
+}

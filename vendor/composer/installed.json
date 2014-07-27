@@ -1,0 +1,78 @@
+[
+    {
+        "name": "aoepeople/easy-deploy",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/AOEpeople/EasyDeploy.git",
+            "reference": "016a7283ddb7ab65477435402b212e529749bc77"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/AOEpeople/EasyDeploy/zipball/016a7283ddb7ab65477435402b212e529749bc77",
+            "reference": "016a7283ddb7ab65477435402b212e529749bc77",
+            "shasum": ""
+        },
+        "time": "2014-04-16 15:19:40",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "Classes/"
+            ]
+        },
+        "license": [
+            "GPL v3"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Pötzinger"
+            }
+        ],
+        "description": "Set of PHP Scripts that makes it easy to deploy to local or remote Servers",
+        "support": {
+            "source": "https://github.com/AOEpeople/EasyDeploy/tree/master",
+            "issues": "https://github.com/AOEpeople/EasyDeploy/issues"
+        }
+    },
+    {
+        "name": "aoepeople/easy-deploy-workflows",
+        "version": "dev-refactorworkflows",
+        "version_normalized": "dev-refactorworkflows",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/AOEpeople/EasyDeployWorkflows.git",
+            "reference": "85bc79a1c75a3df82a18274ecce94336b067c3d5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/AOEpeople/EasyDeployWorkflows/zipball/85bc79a1c75a3df82a18274ecce94336b067c3d5",
+            "reference": "85bc79a1c75a3df82a18274ecce94336b067c3d5",
+            "shasum": ""
+        },
+        "time": "2014-07-22 11:44:51",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "EasyDeployWorkflows\\": "Classes/"
+            }
+        },
+        "license": [
+            "GPL v3"
+        ],
+        "authors": [
+            {
+                "name": "Timo schmidt"
+            },
+            {
+                "name": "Daniel Pötzinger"
+            }
+        ],
+        "description": "EasyDeployWorkflows offers a concept to develop Deployment Workflows on Top of EasyDeploy",
+        "support": {
+            "source": "https://github.com/AOEpeople/EasyDeployWorkflows/tree/refactorworkflows"
+        }
+    }
+]
