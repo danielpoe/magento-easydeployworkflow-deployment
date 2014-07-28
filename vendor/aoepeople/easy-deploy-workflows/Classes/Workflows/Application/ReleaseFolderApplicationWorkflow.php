@@ -7,6 +7,7 @@ use EasyDeployWorkflows\Tasks\AbstractServerTask;
 use EasyDeployWorkflows\Tasks\Common\CheckCorrectDeployNode;
 use EasyDeployWorkflows\Tasks\Common\DeleteFile;
 use EasyDeployWorkflows\Tasks\Common\Rename;
+use EasyDeployWorkflows\Tasks\Common\RunCommand;
 use EasyDeployWorkflows\Tasks\Common\SourceEvaluator;
 use EasyDeployWorkflows\Tasks\Common\Untar;
 use EasyDeployWorkflows\Tasks\Release\CleanupReleases;
@@ -62,6 +63,9 @@ class ReleaseFolderApplicationWorkflow extends BaseApplicationWorkflow {
 			$task->addServersByName($this->workflowConfiguration->getInstallServers());
 			$this->addTask('Delete downloaded package', $task);
 		} else {
+
+
+
 			$source = $this->workflowConfiguration->getSource();
 			$source->setIndividualTargetFolderName($this->workflowConfiguration->getReleaseVersion());
 			$task = new SourceEvaluator();
@@ -179,9 +183,15 @@ class ReleaseFolderApplicationWorkflow extends BaseApplicationWorkflow {
 			$task->setTarget($this->workflowConfiguration->getReleaseBaseFolder() . $this->workflowConfiguration->getReleaseVersion());
 			$this->addTask('Rename Unzipped Package to Release', $task);
 		} else {
+			$createDirTask = new RunCommand();
+			$createDirTask->setChangeToDirectory($this->workflowConfiguration->getReleaseBaseFolder());
+			$createDirTask->setCommand('mkdir '.$this->workflowConfiguration->getReleaseVersion());
+			$createDirTask->addServersByName($this->workflowConfiguration->getInstallServers());
+			$this->addTask('Create Releasefolder for new Release', $createDirTask);
+
 			$unTarTask->setFolder($this->workflowConfiguration->getReleaseBaseFolder().DIRECTORY_SEPARATOR.$this->workflowConfiguration->getReleaseVersion());
 			$unTarTask->addServersByName($this->workflowConfiguration->getInstallServers());
-			$this->addTask('Untar Package to Releasefolder', $unTarTask);
+			$this->addTask('Untar Package to new Releasefolder', $unTarTask);
 		}
 	}
 }
